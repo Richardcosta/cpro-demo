@@ -1,11 +1,10 @@
 const express = require('express')
-
-
-
 const app = express();
 
+app.use('/', express.static(__dirname + '/front-angular/dist'))
+
 app.get('*', (req, res) => {
-    res.send('Coucou la demon')
+    res.sendFile(__dirname + '/front-angular/dist/index.html')
 })
 
 const port = process.env.PORT || 3000
